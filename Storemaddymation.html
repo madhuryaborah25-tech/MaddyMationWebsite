@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MaddyMation | Store</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600&family=Permanent+Marker&family=Varela+Round&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --bg-color: hwb(346 20% 18%);
+            --accent-color: hwb(346 20% 18%);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Fredoka', sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: white;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        header {
+            width: 100%;
+            padding: 15px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: hwb(346 20% 18%);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+        }
+
+        .logo img {
+            height: 30px;
+        }
+
+        .back-btn {
+            color: white;
+            text-decoration: none;
+            font-family: 'Berlin Sans FB Demi', 'Berlin Sans FB', sans-serif;
+            font-size: 1.2rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            transition: opacity 0.3s ease;
+        }
+
+        .back-btn:hover {
+            opacity: 0.7;
+        }
+
+        .store-container {
+            width: 100%;
+            max-width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .store-page {
+            width: 100%;
+            position: relative;
+            display: block;
+            margin: 0;
+            padding: 0;
+            font-size: 0;
+            /* Remove invisible gaps */
+        }
+
+        /* Overlay to hide the original back button built into the PNG */
+        .hide-png-back-btn {
+            position: absolute;
+            background-color: hwb(346 20% 18%);
+            top: 2%;
+            /* Tweak this if the button is higher/lower */
+            left: 2%;
+            /* Tweak this depending on how far left it is */
+            width: 15%;
+            /* Make wider if button sticks out */
+            height: 6%;
+            /* Make taller to cover fully */
+            border-radius: 30px;
+            /* Optional rounded edges to blend nicely if needed */
+        }
+
+        .store-page img {
+            width: 100%;
+            height: auto;
+            display: block;
+            margin: 0;
+            padding: 0;
+            border: none;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <div class="logo">
+            <a href="index.html">
+                <img src="logomaddymation2345.png" alt="MaddyMation Logo">
+            </a>
+        </div>
+        <a href="index.html" class="back-btn">
+            <i class="fas fa-arrow-left"></i> Back to Homepage
+        </a>
+    </header>
+
+    <main class="store-container">
+        <div class="store-page">
+            <img src="ST1.png" alt="MaddyMation Store">
+            <!-- Overlays a red box to mask the painted back button using CSS -->
+            <div class="hide-png-back-btn"></div>
+        </div>
+        <div class="store-page">
+            <img src="storebase2.png" alt="MaddyMation Store Page 2">
+        </div>
+        <div class="store-page">
+            <img src="ST3.png" alt="MaddyMation Store Page 3">
+        </div>
+    </main>
+
+</body>
+
+</html>

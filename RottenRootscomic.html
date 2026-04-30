@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rotten Roots | Comic</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600&family=Permanent+Marker&family=Varela+Round&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --bg-color: hwb(346 20% 18%);
+            /* Dark background for an immersive reading experience */
+            --accent-color: hwb(346 20% 18%);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Fredoka', sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: white;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        /* Sticky header for back navigation */
+        header {
+            width: 100%;
+            padding: 15px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: hwb(346 20% 18%);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+        }
+
+        .logo img {
+            height: 30px;
+        }
+
+        .back-btn {
+            color: white;
+            text-decoration: none;
+            font-family: 'Berlin Sans FB Demi', 'Berlin Sans FB', sans-serif;
+            font-size: 1.2rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            transition: opacity 0.3s ease;
+        }
+
+        .back-btn:hover {
+            opacity: 0.7;
+        }
+
+        /* Linear panel container to hold the comic pages */
+        .comic-container {
+            width: 100%;
+            max-width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: #000;
+            margin: 0 auto;
+        }
+
+        .comic-page {
+            width: 100%;
+            display: block;
+            margin: 0;
+            padding: 0;
+            /* Setting font-size 0 to remove any invisible gaps between inline images */
+            font-size: 0;
+        }
+
+        .comic-page img {
+            width: 100%;
+            height: auto;
+            display: block;
+            margin: 0;
+            padding: 0;
+            border: none;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <div class="logo">
+            <a href="index.html">
+                <img src="logomaddymation2345.png" alt="MaddyMation Logo">
+            </a>
+        </div>
+        <a href="index.html" class="back-btn">
+            <i class="fas fa-arrow-left"></i> Back to Homepage
+        </a>
+    </header>
+
+    <main class="comic-container">
+        <!-- Seamless continuous flow of all the comic pages -->
+        <div class="comic-page"><img src="ROTTEN ROOTS Final0000.jpg" alt="Rotten Roots Page 0000"></div>
+        <div class="comic-page"><img src="ROTTEN ROOTS Final0001.jpg" alt="Rotten Roots Page 0001"></div>
+        <div class="comic-page"><img src="ROTTEN ROOTS Final0002.jpg" alt="Rotten Roots Page 0002"></div>
+        <div class="comic-page"><img src="ROTTEN ROOTS Final0003.jpg" alt="Rotten Roots Page 0003"></div>
+        <div class="comic-page"><img src="ROTTEN ROOTS Final0004.jpg" alt="Rotten Roots Page 0004"></div>
+        <div class="comic-page"><img src="ROTTEN ROOTS Final0005.jpg" alt="Rotten Roots Page 0005"></div>
+        <div class="comic-page"><img src="ROTTEN ROOTS Final0006.jpg" alt="Rotten Roots Page 0006"></div>
+        <div class="comic-page"><img src="ROTTEN ROOTS Final0007.jpg" alt="Rotten Roots Page 0007"></div>
+        <div class="comic-page"><img src="ROTTEN ROOTS Final0008.jpg" alt="Rotten Roots Page 0008"></div>
+        <div class="comic-page"><img src="ROTTEN ROOTS Final0009.jpg" alt="Rotten Roots Page 0009"></div>
+        <div class="comic-page"><img src="ROTTEN ROOTS Final0010.jpg" alt="Rotten Roots Page 0010"></div>
+        <div class="comic-page"><img src="ROTTEN ROOTS Final0011.jpg" alt="Rotten Roots Page 0011"></div>
+        <div class="comic-page"><img src="ROTTEN ROOTS Final0012.jpg" alt="Rotten Roots Page 0012"></div>
+        <div class="comic-page"><img src="ROTTEN ROOTS Final0013.jpg" alt="Rotten Roots Page 0013"></div>
+        <div class="comic-page"><img src="ROTTEN ROOTS Final0014.jpg" alt="Rotten Roots Page 0014"></div>
+    </main>
+
+</body>
+
+</html>
