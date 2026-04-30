@@ -1,0 +1,1100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MaddyMation | Portfolio</title>
+    <!-- Google Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600&family=Permanent+Marker&family=Varela+Round&display=swap"
+        rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --bg-color: #d23055;
+            --text-color: #333;
+            --accent-color: #d23055;
+            --card-bg: #ffffff;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Fredoka', sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            overflow-x: hidden;
+            min-height: 100vh;
+        }
+
+        /* Navbar */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 5%;
+            background-color: transparent;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+        }
+
+        .logo {
+            font-family: 'Permanent Marker', cursive;
+            font-size: 2rem;
+            color: white;
+            text-transform: uppercase;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 40px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: white;
+            font-family: 'Berlin Sans FB Demi', 'Berlin Sans FB', sans-serif;
+            font-weight: 600;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: opacity 0.3s;
+        }
+
+        nav ul li a:hover {
+            opacity: 0.8;
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        .hero-video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: 1;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1));
+            z-index: 1;
+        }
+
+        .hero-logo {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+        }
+
+        .hero-logo img {
+            max-width: 300px;
+            filter: drop-shadow(0 0 -5px rgba(80, 9, 9, 0.3));
+        }
+
+        .hero-logo-placeholder {
+            font-family: 'Permanent Marker', cursive;
+            font-size: 5rem;
+            color: white;
+            text-shadow: 2px 2px 0px rgba(0, 0, 0, 0.5);
+            position: relative;
+            padding: 20px 60px;
+            z-index: 2;
+        }
+
+        .hero-logo-placeholder::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) rotate(-2deg);
+            width: 120%;
+            height: 120%;
+            background: var(--accent-color);
+            border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+            z-index: -1;
+            filter: drop-shadow(0 5px 15px rgba(0, 0, 0, 0.3));
+        }
+
+        /* Content Section */
+        .content-container {
+            max-width: 1000px;
+            margin: -20px auto 50px;
+            position: relative;
+            z-index: 10;
+        }
+
+        .about-card {
+            background: var(--card-bg);
+            border-radius: 40px;
+            padding: 50px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            display: flex;
+            gap: 50px;
+            align-items: flex-start;
+        }
+
+        .profile-side {
+            flex: 0 0 300px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .profile-img {
+            width: 250px;
+            height: 250px;
+            border-radius: 50%;
+            background: #eee;
+            overflow: hidden;
+            margin-bottom: 30px;
+            border: 8px solid white;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .profile-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .software-icons {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 15px;
+            width: 100%;
+            padding: 0 10px;
+        }
+
+        .software-icon {
+            width: 50px;
+            height: 50px;
+            background: #f0f0f0;
+            border-radius: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        .software-icon-label {
+            grid-column: span 4;
+            text-align: center;
+            margin-top: 10px;
+            font-size: 0.9rem;
+            font-family: 'Berlin Sans FB Demi', 'Berlin Sans FB', sans-serif;
+            font-weight: normal;
+        }
+
+        .info-side {
+            flex: 1;
+        }
+
+        .name {
+            font-family: 'Berlin Sans FB Demi', 'Berlin Sans FB', sans-serif;
+            font-weight: normal;
+            font-size: 4rem;
+            color: var(--accent-color);
+            line-height: 1;
+            margin-bottom: 10px;
+            display: flex;
+            flex-direction: column;
+            text-align: center;
+        }
+
+        .name span {
+            font-family: 'Berlin Sans FB Demi', 'Berlin Sans FB', sans-serif;
+        }
+
+        .location {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 5px;
+            font-family: 'Berlin Sans FB Demi', 'Berlin Sans FB', sans-serif;
+            font-weight: normal;
+            font-size: 0.95rem;
+            color: #555;
+            margin-bottom: 25px;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin-bottom: 30px;
+        }
+
+        .social-link {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-decoration: none;
+            color: #333;
+            font-family: 'Berlin Sans FB Demi', 'Berlin Sans FB', sans-serif;
+            font-weight: normal;
+            font-size: 0.95rem;
+            transition: transform 0.3s;
+        }
+
+        .social-link:hover {
+            transform: translateY(-5px);
+        }
+
+        .social-link i {
+            font-size: 1.5rem;
+            margin-bottom: 5px;
+        }
+
+        .bio {
+            text-align: center;
+            font-size: 0.95rem;
+            line-height: 1.6;
+            color: #444;
+        }
+
+        .bio p {
+            margin-bottom: 15px;
+        }
+
+        /* Content Section */
+        .content-section {
+            max-width: 1400px;
+            margin: 0 auto 100px;
+            background-color: #000;
+            color: #fff;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+        }
+
+        .featured-video {
+            position: relative;
+            height: 480px;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+        }
+
+        .featured-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            z-index: 1;
+        }
+
+        .featured-gradient {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to top, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0.6) 40%, rgba(0, 0, 0, 0) 100%);
+            z-index: 2;
+        }
+
+        .featured-info {
+            position: relative;
+            z-index: 3;
+            padding: 30px 40px;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            max-width: 700px;
+        }
+
+        .featured-title {
+            font-family: 'Berlin Sans FB Demi', 'Berlin Sans FB', sans-serif;
+            font-weight: normal;
+            font-size: 3.2rem;
+            text-transform: uppercase;
+            margin-bottom: 5px;
+            line-height: 1;
+            letter-spacing: -1px;
+        }
+
+        .featured-genre {
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        .featured-desc {
+            font-size: 0.85rem;
+            line-height: 1.4;
+            margin-bottom: 20px;
+            max-width: 500px;
+        }
+
+        .play-btn {
+            display: inline-block;
+            background-color: var(--accent-color);
+            color: white;
+            text-decoration: none;
+            font-size: 1.2rem;
+            font-weight: 800;
+            padding: 10px 30px;
+            border-radius: 10px;
+            text-transform: uppercase;
+            transition: transform 0.2s, background-color 0.2s;
+            box-shadow: 0 5px 15px rgba(210, 48, 85, 0.4);
+        }
+
+        .play-btn:hover {
+            transform: scale(1.05);
+            background-color: #f03a65;
+        }
+
+        .video-list-container {
+            padding: 15px 30px 30px;
+        }
+
+        .list-title {
+            font-family: 'Berlin Sans FB Demi', 'Berlin Sans FB', sans-serif;
+            font-weight: normal;
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+        }
+
+        .video-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .video-card {
+            border-radius: 10px;
+            overflow: hidden;
+            aspect-ratio: 16 / 9;
+            cursor: pointer;
+            transition: transform 0.2s;
+            border: 3px solid transparent;
+            position: relative;
+        }
+
+        .video-card:hover {
+            transform: scale(1.05);
+            z-index: 10;
+        }
+
+        .video-card.active {
+            border-color: var(--accent-color);
+        }
+
+        .video-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Footer Section */
+        .footer-section {
+            background-color: var(--bg-color);
+            color: white;
+            padding: 80px 10% 40px;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 60px;
+        }
+
+        .footer-logo-centered {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+        }
+
+        .footer-logo-centered img {
+            height: 80px;
+            filter: brightness(0) invert(1);
+            margin-left: 300px;
+            margin-top: 20px;
+        }
+
+        .footer-container {
+            width: 100%;
+            max-width: 1200px;
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 40px;
+            align-items: flex-end;
+        }
+
+        .footer-left {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        .footer-character-img {
+            width: 550px;
+            margin-bottom: -45px;
+            /* Slight overlap with bottom */
+        }
+
+        .footer-character-img img {
+            width: 100%;
+            filter: drop-shadow(0 3px 5px rgba(0, 0, 0, 0.4));
+        }
+
+        .footer-center {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-self: center;
+        }
+
+        .footer-col-nav,
+        .footer-col-contact {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+        }
+
+        .footer-col-nav a {
+            font-family: 'Berlin Sans FB Demi', 'Berlin Sans FB', sans-serif;
+            font-weight: normal;
+            color: white;
+            text-decoration: none;
+            font-size: 1.5rem;
+            transition: opacity 0.3s;
+        }
+
+        .footer-col-nav a:hover {
+            opacity: 0.7;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            font-family: 'Berlin Sans FB Demi', 'Berlin Sans FB', sans-serif;
+            font-weight: normal;
+            font-size: 1.1rem;
+        }
+
+        .contact-item a {
+            color: white;
+            text-decoration: none;
+        }
+
+        .contact-item i {
+            font-size: 1.5rem;
+            width: 30px;
+        }
+
+        .footer-right {
+            text-align: right;
+            align-self: flex-end;
+        }
+
+        .footer-signature img {
+            width: 200px;
+            opacity: 0.9;
+            filter: drop-shadow(0 5px 10px rgba(0, 0, 0, 0.1));
+        }
+
+        @media (max-width: 1000px) {
+            .footer-container {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .footer-center {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .footer-character-img {
+                margin: 0 auto;
+                width: 250px;
+            }
+
+            .footer-right {
+                text-align: center;
+            }
+        }
+
+        .meet-maddy-section {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            background-color: #d23055;
+            /* Match theme red */
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+        }
+
+        .meet-maddy-section img {
+            width: 100%;
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <div class="logo">
+            <img src="logomaddymation2345.png" alt="MaddyMation Logo" style="height: 40px;">
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#about">About</a></li>
+                <li><a href="#content">Content</a></li>
+                <li><a href="#portfolio">Portfolio</a></li>
+                <li><a href="Storemaddymation.html">Shop</a></li>
+                <li><a href="#connect">Connect</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <video autoplay loop muted playsinline class="hero-video">
+            <source src="maddymation.webm" type="video/webm">
+        </video>
+        <div class="hero-overlay"></div>
+        <div class="hero-logo">
+            <img src="Logo-Maddymation.png" alt="MaddyMotion Logo"
+                style="max-width: 400px; filter: drop-shadow(0 0 20px rgba(0,0,0,0.5));">
+        </div>
+    </section>
+
+    <main id="about" class="content-container">
+        <div class="about-card">
+            <!-- Left Side: Profile & Software -->
+            <div class="profile-side">
+                <div class="profile-img">
+                    <img src="profile.png" alt="Madhurya Borah">
+                </div>
+
+                <div class="software-icons">
+                    <!-- Specific Software Icons based on the image -->
+                    <div class="software-icon" title="Photoshop" style="background: transparent;">
+                        <img src="Adobe_Photoshop_CC_icon.svg.png" alt="Photoshop" style="width: 100%; height: 100%; object-fit: contain;">
+                    </div>
+                    <div class="software-icon" title="Premiere Pro" style="background: transparent;">
+                        <img src="Adobe_Premiere_Pro_CC_icon.svg.png" alt="Premiere Pro" style="width: 100%; height: 100%; object-fit: contain;">
+                    </div>
+                    <div class="software-icon" title="Animate" style="background: transparent;">
+                        <img src="Adobe_Animate_CC_icon_(2020).svg.png" alt="Animate" style="width: 100%; height: 100%; object-fit: contain;">
+                    </div>
+                    <div class="software-icon" title="After Effects" style="background: transparent;">
+                        <img src="Adobe_After_Effects_CC_icon.svg.png" alt="After Effects" style="width: 100%; height: 100%; object-fit: contain;">
+                    </div>
+                    <div class="software-icon" title="Blender" style="background: transparent;">
+                        <img src="Blender_logo_no_text.svg.png" alt="Blender" style="width: 100%; height: 100%; object-fit: contain;">
+                    </div>
+                    <div class="software-icon" title="Audacity" style="background: transparent;">
+                        <img src="Audacity_Logo.svg.png" alt="Audacity" style="width: 100%; height: 100%; object-fit: contain;">
+                    </div>
+                    <div class="software-icon" title="Clip Studio" style="background: transparent;">
+                        <img src="Clipstudiopaint_app_logo.png" alt="Clip Studio Paint" style="width: 100%; height: 100%; object-fit: contain;">
+                    </div>
+                    <div class="software-icon" title="Figma" style="background: transparent;">
+                        <img src="Figma-Logo-PNG-Photo.png" alt="Figma" style="width: 100%; height: 100%; object-fit: contain;">
+                    </div>
+
+                    <div class="software-icon-label">Softwares I use</div>
+                </div>
+            </div>
+
+            <!-- Right Side: Info & Bio -->
+            <div class="info-side">
+                <div class="name">
+                    <span>Madhurya</span>
+                    <span>Borah</span>
+                </div>
+
+                <div class="location">
+                    <i class="fas fa-map-marker-alt"></i>
+                    Assam, India
+                </div>
+
+                <div class="social-links">
+                    <a href="https://www.youtube.com/@maddymationofficial" class="social-link" target="_blank">
+                        <i class="fab fa-youtube" style="color: #FF0000;"></i>
+                        MaddyMation
+                    </a>
+                    <a href="https://instagram.com/_maddy_mation" class="social-link" target="_blank">
+                        <i class="fab fa-instagram" style="color: #E1306C;"></i>
+                        _maddy_mation
+                    </a>
+                </div>
+
+                <div class="bio">
+                    <p>Hi,</p>
+                    <p>I'm <strong>Madhurya Borah</strong>, an artist who loves animation, storytelling, and
+                        visual design. I enjoy experimenting with cinematic scenes, hand drawn animation, and unique art
+                        styles to bring ideas to life.</p>
+                    <p>I run a YouTube channel called <strong>MaddyMation</strong>, where I create independent animated
+                        content and explore different creative concepts through animation and visuals.</p>
+                    <p>Through my work, I aim to tell interesting stories and keep learning new ways to express
+                        creativity through animation.</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <section id="content" class="content-section">
+        <!-- Featured Video -->
+        <div class="featured-video">
+            <div id="featured-bg" class="featured-bg" style="background-image: url('1vud.png');"></div>
+            <div class="featured-gradient"></div>
+            <div class="featured-info">
+                <h2 id="featured-title" class="featured-title">THE GOLDEN TEETH</h2>
+                <div id="featured-genre" class="featured-genre">Mystery/Comedy</div>
+                <p id="featured-desc" class="featured-desc">What happens when a missing briefcase doesn't just disappear
+                    but returns to
+                    unleash chaos and unravel secrets buried deep?</p>
+                <a id="featured-link" href="https://youtu.be/bMoOP_N6fKM?si=d3IR3JP-bD0lCnGl" target="_blank"
+                    class="play-btn">PLAY</a>
+            </div>
+        </div>
+
+        <!-- Video List -->
+        <div class="video-list-container">
+            <h3 class="list-title">Discover MaddyMation</h3>
+            <div class="video-grid">
+                <!-- Golden Teeth -->
+                <div class="video-card active" onclick="updateFeatured(0)">
+                    <img src="https://img.youtube.com/vi/bMoOP_N6fKM/maxresdefault.jpg" alt="The Golden Teeth">
+                </div>
+                <!-- The SADAK Not Taken! -->
+                <div class="video-card" onclick="updateFeatured(1)">
+                    <img src="https://img.youtube.com/vi/h5ZkDhB997Q/maxresdefault.jpg" alt="The SADAK Not Taken!">
+                </div>
+                <!-- Fruit and Nutt -->
+                <div class="video-card" onclick="updateFeatured(2)">
+                    <img src="https://img.youtube.com/vi/jQq7mZsuWYY/maxresdefault.jpg" alt="Fruit And Nutt">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        const videos = [
+            {
+                title: "THE GOLDEN TEETH",
+                genre: "Mystery/Comedy",
+                desc: "What happens when a missing briefcase doesn't just disappear but returns to unleash chaos and unravel secrets buried deep?",
+                link: "https://youtu.be/bMoOP_N6fKM?si=d3IR3JP-bD0lCnGl",
+                bg: "1vud.png"
+            },
+            {
+                title: "The SADAK Not Taken!",
+                genre: "Comedy",
+                desc: "New road, new struggles every step comes with something unexpected. The path won't be easy, but that's where the real story begins. Watch closely",
+                link: "https://youtu.be/h5ZkDhB997Q?si=5Yyro2fADkUJyx4O",
+                bg: "2vid.png"
+            },
+            {
+                title: "Fruit And Nutt",
+                genre: "Comedy/Absurd humour",
+                desc: "Are nuts really healthy? Find out how does an ordinary bus journey turn hilariously horrific for Maddy?",
+                link: "https://youtu.be/jQq7mZsuWYY?si=HY6rGhtZqUtvuJcj",
+                bg: "3vid.png"
+            }
+        ];
+
+        function updateFeatured(index) {
+            const video = videos[index];
+            document.getElementById('featured-title').innerText = video.title;
+            document.getElementById('featured-genre').innerText = video.genre;
+            document.getElementById('featured-desc').innerText = video.desc;
+            document.getElementById('featured-link').href = video.link;
+            document.getElementById('featured-bg').style.backgroundImage = `url('${video.bg}')`;
+
+            // Update active state in grid
+            const cards = document.querySelectorAll('.video-card');
+            cards.forEach((card, i) => {
+                if (i === index) {
+                    card.classList.add('active');
+                } else {
+                    card.classList.remove('active');
+                }
+            });
+        }
+    </script>
+
+    <section class="meet-maddy-section">
+        <img src="yesmeetmaddy.png" alt="Meet Maddy">
+    </section>
+
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="portfolio-section">
+        <div class="portfolio-container">
+            <h2 class="portfolio-heading">Animation Projects</h2>
+            <div class="portfolio-grid">
+                <!-- Project 1: Kaah -->
+                <a href="https://www.behance.net/gallery/248269309/KAAH-2D-animated-promotional-film" target="_blank"
+                    class="portfolio-item">
+                    <div class="portfolio-image">
+                        <img src="1kaah.png" alt="Kaah">
+                        <div class="portfolio-overlay">
+                            <span class="view-project">View Project</span>
+                        </div>
+                    </div>
+                    <h3 class="project-title">Kaah</h3>
+                </a>
+
+                <!-- Project 2: School Animation -->
+                <a href="https://www.behance.net/gallery/247626677/Love-Letter-Short-2D-animation-project"
+                    target="_blank" class="portfolio-item">
+                    <div class="portfolio-image">
+                        <img src="2 LL.png" alt="Animation Project">
+                        <div class="portfolio-overlay">
+                            <span class="view-project">View Project</span>
+                        </div>
+                    </div>
+                    <h3 class="project-title">Love Letter</h3>
+                </a>
+
+                <!-- Project 3: The Rat Race -->
+                <a href="https://www.behance.net/gallery/244710321/The-Rat-Race-%28Animation-Short%29" target="_blank"
+                    class="portfolio-item">
+                    <div class="portfolio-image">
+                        <img src="3Rat.png" alt="The Rat Race">
+                        <div class="portfolio-overlay">
+                            <span class="view-project">View Project</span>
+                        </div>
+                    </div>
+                    <h3 class="project-title">The Rat Race</h3>
+                </a>
+
+                <!-- Project 4: Naxalism -->
+                <a href="https://www.behance.net/gallery/225695607/NAXALISM-Animatic-Short" target="_blank"
+                    class="portfolio-item">
+                    <div class="portfolio-image">
+                        <img src="4 naxal.png" alt="Naxalism">
+                        <div class="portfolio-overlay">
+                            <span class="view-project">View Project</span>
+                        </div>
+                    </div>
+                    <h3 class="project-title">NAXALISM</h3>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Comic Section -->
+    <section id="comic" class="comic-section">
+        <div class="comic-container">
+            <div class="comic-image">
+                <img src="Rotten Roots.png" alt="Rotten Roots Comic">
+            </div>
+            <div class="comic-info">
+                <p class="comic-subtitle">Read my Comic</p>
+                <h2 class="comic-title">ROTTEN ROOTS</h2>
+                <p class="comic-subtitle">for Free</p>
+                <a href="RottenRootscomic.html" class="comic-read-btn">READ</a>
+            </div>
+        </div>
+    </section>
+
+    <style>
+        /* Comic Section */
+        .comic-section {
+            background-color: hwb(346 17% 20%);
+            /* Slightly deeper red to distinguish the container */
+            max-width: 1200px;
+            width: 90%;
+            margin: 0 auto 100px;
+            padding: 60px 5%;
+            display: flex;
+            justify-content: center;
+            border-radius: 30px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+            border: 2px solid rgba(255, 255, 255, 0.15);
+        }
+
+        .comic-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 50px;
+            max-width: 1000px;
+            width: 100%;
+        }
+
+        .comic-image {
+            flex: 0 0 350px;
+        }
+
+        .comic-image img {
+            width: 100%;
+            height: auto;
+            border: none;
+            filter: drop-shadow(0 10px 25px rgba(0, 0, 0, 0.5));
+            display: block;
+        }
+
+        .comic-info {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            color: white;
+            text-align: center;
+            font-family: 'Berlin Sans FB Demi', 'Berlin Sans FB', sans-serif;
+        }
+
+        .comic-subtitle {
+            font-family: 'Berlin Sans FB Demi', 'Berlin Sans FB', sans-serif;
+            font-size: 2.2rem;
+            font-weight: normal;
+            margin: 0;
+            line-height: 1.2;
+            letter-spacing: -0.5px;
+        }
+
+        .comic-title {
+            font-family: 'Berlin Sans FB Demi', 'Berlin Sans FB', sans-serif;
+            font-size: 3.5rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            margin: 0;
+            line-height: 1.1;
+            letter-spacing: 1px;
+        }
+
+        .comic-read-btn {
+            display: inline-block;
+            background-color: white;
+            color: #d23055;
+            font-family: 'Fredoka', sans-serif;
+            font-size: 2.2rem;
+            font-weight: 600;
+            text-decoration: none;
+            padding: 15px 60px;
+            border-radius: 30px;
+            margin-top: 30px;
+            transition: transform 0.3s, opacity 0.3s;
+        }
+
+        .comic-read-btn:hover {
+            transform: scale(1.05);
+            opacity: 0.9;
+        }
+
+        @media (max-width: 900px) {
+            .comic-container {
+                flex-direction: column;
+                gap: 40px;
+            }
+
+            .comic-image {
+                flex: 0 0 auto;
+                max-width: 300px;
+            }
+
+            .comic-title {
+                font-size: 2.8rem;
+            }
+
+            .comic-subtitle {
+                font-size: 1.8rem;
+            }
+        }
+
+        .portfolio-section {
+            padding: 50px 2% 80px;
+            background-color: #d23055;
+            /* Match theme red */
+            color: white;
+            text-align: center;
+        }
+
+        .portfolio-heading {
+            font-family: 'Berlin Sans FB Demi', 'Berlin Sans FB', sans-serif;
+            font-weight: normal;
+            font-size: 2rem;
+            margin-bottom: 25px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: white;
+        }
+
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            max-width: 1600px;
+            margin: 0 auto;
+        }
+
+        .portfolio-item {
+            text-decoration: none;
+            color: white;
+            transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .portfolio-image {
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            aspect-ratio: 4 / 3;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            border: none;
+        }
+
+        .portfolio-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+
+        .portfolio-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(210, 48, 85, 0.7);
+            /* Translucent theme red */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .view-project {
+            padding: 12px 25px;
+            background: white;
+            color: #d23055;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transform: translateY(20px);
+            transition: transform 0.4s ease;
+        }
+
+        .portfolio-item:hover {
+            transform: translateY(-15px);
+        }
+
+        .portfolio-item:hover .portfolio-image img {
+            transform: scale(1.1);
+        }
+
+        .portfolio-item:hover .portfolio-overlay {
+            opacity: 1;
+        }
+
+        .portfolio-item:hover .view-project {
+            transform: translateY(0);
+        }
+
+        .project-title {
+            font-family: 'Berlin Sans FB Demi', 'Berlin Sans FB', sans-serif;
+            font-size: 1.4rem;
+            font-weight: normal;
+            transition: color 0.3s ease;
+        }
+
+
+
+        @media (max-width: 600px) {
+            .portfolio-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .portfolio-heading {
+                font-size: 2.5rem;
+            }
+        }
+    </style>
+
+
+    <footer id="connect" class="footer-section">
+        <!-- Top: Centered Logo -->
+        <div class="footer-logo-centered">
+            <img src="logomaddymation2345.png" alt="MaddyMation Logo">
+        </div>
+
+        <div class="footer-container">
+            <!-- Left: Character -->
+            <div class="footer-left">
+                <div class="footer-character-img">
+                    <!-- Replace with your footer character image when available -->
+                    <img src="1.png" alt="Maddy Character">
+                </div>
+            </div>
+
+            <!-- Center: Nav and Contact -->
+            <div class="footer-center">
+                <div class="footer-col-nav">
+                    <a href="#about">ABOUT</a>
+                    <a href="#content">CONTENT</a>
+                    <a href="#portfolio">PORTFOLIO</a>
+                </div>
+                <div class="footer-col-contact">
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <a href="mailto:mationmaddy@gmail.com">mationmaddy@gmail.com</a>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fab fa-youtube"></i>
+                        <a href="https://www.youtube.com/@maddymationofficial" target="_blank">MaddyMation</a>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>Assam, India</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right: Signature -->
+            <div class="footer-right">
+                <div class="footer-signature">
+                    <img src="sign.png" alt="Love! - Maddy">
+                </div>
+            </div>
+        </div>
+    </footer>
+
+</body>
+
+</html>
